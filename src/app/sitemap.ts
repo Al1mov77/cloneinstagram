@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://cloneinstagram-ali.vercel.app';
+  const baseUrl = 'https://entertainment-lite.vercel.app';
   
   return [
     {

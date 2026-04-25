@@ -8,6 +8,37 @@ import Sidebar from "@/src/components/navBar/SidebarUi";
 import { ThemeProvider } from "@/src/components/theme-provider";
 
 import MobileNav from "@/src/components/navBar/MobileNav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Entertainment Lite",
+    template: "%s | Entertainment Lite",
+  },
+  description: "Entertainment Lite - The fastest and most lightweight social media platform. Connect with friends, share photos, and explore new content.",
+  keywords: ["entertainment lite", "social media", "instagram clone", "lightweight", "fast social network", "connect friends"],
+  authors: [{ name: "Entertainment Lite Team" }],
+  openGraph: {
+    title: "Entertainment Lite",
+    description: "Connect with friends and share your best moments on Entertainment Lite.",
+    type: "website",
+    siteName: "Entertainment Lite",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Entertainment Lite",
+    description: "The fastest social media experience.",
+  },
+  alternates: {
+    canonical: "https://entertainment-lite.vercel.app",
+    languages: {
+      "en-US": "https://entertainment-lite.vercel.app/en",
+      "ru-RU": "https://entertainment-lite.vercel.app/ru",
+      "tg-TJ": "https://entertainment-lite.vercel.app/tj",
+    },
+  },
+  robots: "index, follow",
+};
 
 export const dynamic = "force-dynamic";
 

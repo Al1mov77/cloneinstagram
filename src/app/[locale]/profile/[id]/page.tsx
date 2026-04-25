@@ -12,11 +12,11 @@ export async function generateMetadata({
   // In a real app, you'd fetch the user data here.
   // For now, we'll use a descriptive title.
   return {
-    title: `User Profile | Instagram Clone`,
-    description: `View the profile of user ${id} on Instagram Clone. Connect and share photos and videos.`,
+    title: `User Profile`,
+    description: `View the profile of user ${id} on Entertainment Lite. Connect and share photos and videos.`,
     openGraph: {
-      title: `Instagram Profile - ${id}`,
-      description: `Check out ${id}'s posts and stories.`,
+      title: `Entertainment Lite Profile - ${id}`,
+      description: `Check out ${id}'s posts and stories on Entertainment Lite.`,
     }
   };
 }

@@ -231,7 +231,7 @@ export default function Sidebar() {
               />
             ) : (
               <svg
-                aria-label="Instagram"
+                aria-label="Entertainment Lite"
                 color="currentColor"
                 fill="currentColor"
                 height="24"

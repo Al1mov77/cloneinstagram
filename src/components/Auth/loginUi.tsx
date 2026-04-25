@@ -77,13 +77,11 @@ const LoginUi = () => {
         <div className="flex flex-col gap-3 w-full max-w-[350px]">
           {/* Main Card */}
           <div className="bg-white border border-gray-300 px-10 py-10 flex flex-col items-center shadow-sm">
-            {/* Instagram Logo */}
-            <div className="mb-10 select-none scale-110">
-              <i
-                className="bg-[url('https://static.cdninstagram.com/rsrc.php/v3/yS/r/aj_4-oR96_B.png')] bg-[position:0px_-52px] w-[175px] h-[51px] block"
-                aria-label="Instagram"
-                role="img"
-              ></i>
+            {/* Project Logo */}
+            <div className="mb-8 select-none">
+              <h1 className="text-3xl font-black italic tracking-tighter text-black">
+                Entertainment <span className="text-[#0095f6]">Lite</span>
+              </h1>
             </div>
 
             <form
@@ -196,7 +194,7 @@ const LoginUi = () => {
         </div>
         <div className="flex flex-wrap items-center justify-center gap-4 text-[12px] text-gray-500">
           <SelectLanguage />
-          <span>© 2026 Instagram from Meta</span>
+          <span>© 2026 Entertainment Lite</span>
         </div>
       </footer>
     </div>
