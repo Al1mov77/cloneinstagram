@@ -16,13 +16,13 @@ export const userProfileApi = apiSlice.injectEndpoints({
       providesTags: ["Profile"],
     }),
 
-    getMyPosts: builder.query<IPaginatedResponse<IPost>, void>({
+    getMyPosts: builder.query<IPaginatedResponse<IPost[]>, void>({
       query: () => "/Post/get-my-posts?PageSize=100",
       providesTags: ["Post"],
     }),
 
     getPostFavorites: builder.query<
-      IPaginatedResponse<IPost>,
+      IPaginatedResponse<IPost[]>,
       { PageNumber?: number; PageSize?: number }
     >({
       query: (params) => ({
