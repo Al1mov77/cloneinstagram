@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useGetUsersQuery } from "../api/user";
 import { useAddFollowingRelationShipMutation, useGetMyProfileQuery, useGetFollowingQuery } from "../api/userProfile";
@@ -65,9 +66,14 @@ const Suggestions = () => {
           return (
             <div key={user.id} className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Link href={`/${locale}/profile/${user.id}`} className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a1a] cursor-pointer">
+                <Link href={`/${locale}/profile/${user.id}`} className="w-8 h-8 rounded-full overflow-hidden border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a1a] cursor-pointer relative">
                   {user.image ? (
-                    <img src={`${FILE_URL}${user.image}`} className="w-full h-full object-cover" />
+                    <Image 
+                      src={`${FILE_URL}${user.image}`} 
+                      alt={user.userName} 
+                      fill
+                      className="object-cover"
+                    />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase">
                       {user.userName[0]}
@@ -118,7 +124,7 @@ const Suggestions = () => {
           <a href="#" className="hover:underline">Privacy</a>
           <a href="#" className="hover:underline">Terms</a>
         </nav>
-        <p className="text-xs text-gray-400 uppercase">© 2026 INSTAGRAM CLONE BY ANTIGRAVITY</p>
+        <p className="text-xs text-gray-400 uppercase">© 2026 ENTERTAINMENT LITE BY ANTIGRAVITY</p>
       </div>
     </div>
   );

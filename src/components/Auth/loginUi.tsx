@@ -8,20 +8,25 @@ import { saveToken } from "../../utils/token";
 import { ILoginRequest } from "../../types/interface";
 import LoadingUi from "../LoadingUi";
 import SelectLanguage from "../SelectLangUi";
+import Image from "next/image";
 
 const AppStoreBadge = () => (
-  <img
-    src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_english-en.png/180ae7a04837.png"
+  <Image
+    src="/app_store_final.png"
     alt="App Store"
-    className="h-full cursor-pointer w-auto"
+    width={135}
+    height={40}
+    className="h-full cursor-pointer w-auto object-contain"
   />
 );
 
 const GooglePlayBadge = () => (
-  <img
-    src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_english-en.png/e9cd846dc548.png"
+  <Image
+    src="/google_play_final.png"
     alt="Google Play"
-    className="h-full cursor-pointer w-auto"
+    width={135}
+    height={40}
+    className="h-full cursor-pointer w-auto object-contain"
   />
 );
 
@@ -66,10 +71,12 @@ const LoginUi = () => {
       <div className="flex flex-row items-center justify-center gap-12 max-w-[1000px] w-full mt-[-40px]">
         {/* LEFT SECTION: Static Phone Image (Visible on lg+) */}
         <div className="hidden lg:block relative w-[480px] h-[640px]">
-          <img
+          <Image
             src="/login_phone_large.png"
-            alt="Instagram"
-            className="w-full h-full object-contain select-none transform scale-125"
+            alt="Entertainment Lite App"
+            fill
+            priority
+            className="object-contain select-none transform scale-125"
           />
         </div>
 
@@ -161,16 +168,8 @@ const LoginUi = () => {
           <div className="flex flex-col items-center gap-4 mt-6">
             <p className="text-[14px] font-medium">Get the app.</p>
             <div className="flex gap-2 items-center h-[40px] md:h-[42px]">
-              <img
-                src="/app_store_final.png"
-                alt="App Store"
-                className="h-full cursor-pointer w-auto object-contain"
-              />
-              <img
-                src="/google_play_final.png"
-                alt="Google Play"
-                className="h-[135%] md:h-[140%] cursor-pointer w-auto object-contain"
-              />
+              <AppStoreBadge />
+              <GooglePlayBadge />
             </div>
           </div>
         </div>

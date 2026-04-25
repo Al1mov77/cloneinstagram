@@ -22,7 +22,7 @@ const SelectLanguage = () => {
       >
         <option value="en">English</option>
         <option value="ru">Русский</option>
-        <option value="tj">Tojikī</option>
+        <option value="tg">Tojikī</option>
       </select>
     </div>
   );

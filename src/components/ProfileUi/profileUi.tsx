@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { useRouter, Link, usePathname } from "@/src/i18n/navigation";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { IFollower, IPost } from "../../types/interface";
 import {
@@ -1106,24 +1107,15 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
                 : "bg-gray-100"
             }`}
           >
-            <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-white dark:bg-[#121212]">
-              {profile.image ? (
-                <img
-                  src={`${FILE_URL}${profile.image}`}
-                  alt={profile.userName}
-                  className="w-full h-full object-cover"
-                  onError={(e) =>
-                    (e.currentTarget.src =
-                      "/istockphoto-2151669184-612x612.jpg")
-                  }
-                />
-              ) : (
-                <img 
-                  src="/istockphoto-2151669184-612x612.jpg" 
-                  alt="Default Profile" 
-                  className="w-full h-full object-cover" 
-                />
-              )}
+            <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-white dark:bg-[#121212] relative">
+              <Image
+                src={profile.image ? `${FILE_URL}${profile.image}` : "/istockphoto-2151669184-612x612.jpg"}
+                alt={profile.userName}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 80px, 150px"
+                priority
+              />
             </div>
           </div>
         </div>

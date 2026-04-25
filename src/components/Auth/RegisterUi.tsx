@@ -9,6 +9,7 @@ import { IRegisterRequest } from "../../types/interface";
 import LoadingUi from "../LoadingUi";
 import SelectLanguage from "../SelectLangUi";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const RegisterUi = () => {
   const t = useTranslations("Auth");
@@ -192,15 +193,19 @@ const RegisterUi = () => {
         <div className="flex flex-col items-center gap-4 mt-6">
           <p className="text-[14px] font-medium">Get the app.</p>
           <div className="flex gap-2 items-center h-[40px] md:h-[42px]">
-            <img
+            <Image
               src="/app_store_final.png"
               alt="App Store"
+              width={135}
+              height={40}
               className="h-full cursor-pointer w-auto object-contain"
             />
-            <img
+            <Image
               src="/google_play_final.png"
               alt="Google Play"
-              className="h-[135%] md:h-[140%] cursor-pointer w-auto object-contain"
+              width={135}
+              height={40}
+              className="h-full cursor-pointer w-auto object-contain"
             />
           </div>
           <SelectLanguage />

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link, usePathname } from "@/src/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { logoutUser } from "../../utils/token";
 import { useGetMyProfileQuery } from "../../api/userProfile";
 
@@ -224,10 +225,13 @@ export default function Sidebar() {
         <div className="pt-8 pb-10 px-3 flex items-center overflow-hidden h-[76px]">
           <Link href="/" className="flex items-center">
             {expanded ? (
-              <img
+              <Image
                 src="/Frame 168.png"
-                alt="Instagram"
+                alt="Entertainment Lite"
+                width={153}
+                height={40}
                 className="w-[153px] h-auto object-contain transition-opacity duration-200"
+                priority
               />
             ) : (
               <svg

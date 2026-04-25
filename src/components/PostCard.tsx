@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "@/src/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { IPost } from "../types/interface";
+import Image from "next/image";
 import { useAddCommentMutation, useDeleteCommentMutation, useLikePostMutation, useAddPostFavoriteMutation } from "../api/post";
 import { 
   useAddFollowingRelationShipMutation, 
@@ -148,14 +149,16 @@ const PostCard = ({ post }: { post: IPost }) => {
     }
     
     return (
-      <img 
-        src={`${FILE_URL}${filename}`} 
-        className="w-full aspect-square object-cover rounded-lg border border-gray-100 dark:border-gray-800"
-        onError={(e) => {
-            e.currentTarget.src = "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1000&auto=format&fit=crop";
-            e.currentTarget.className = "w-full aspect-square object-cover rounded-lg border border-gray-100 dark:border-gray-800 opacity-50 grayscale";
-        }}
-      />
+      <div className="w-full aspect-square relative rounded-lg border border-gray-100 dark:border-gray-800 overflow-hidden">
+        <Image 
+          src={`${FILE_URL}${filename}`} 
+          alt="Post content"
+          fill
+          className="object-cover"
+          sizes="(max-width: 470px) 100vw, 470px"
+          priority
+        />
+      </div>
     );
   };
 
@@ -165,15 +168,13 @@ const PostCard = ({ post }: { post: IPost }) => {
       <div className="flex items-center justify-between py-3">
         <div className="flex items-center gap-3">
           <Link href={`/profile/${post.userId}`} className="w-8 h-8 rounded-full p-[1px] bg-gradient-to-tr from-yellow-400 to-fuchsia-600 cursor-pointer">
-            <div className="w-full h-full rounded-full border border-white overflow-hidden bg-gray-100 dark:bg-gray-800">
+            <div className="w-full h-full rounded-full border border-white overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
               {post.userImage ? (
-                <img 
-                    src={`${FILE_URL}${post.userImage}`} 
-                    className="w-full h-full object-cover" 
-                    onError={(e) => {
-                      e.currentTarget.onerror = null;
-                      e.currentTarget.src = "/istockphoto-2151669184-612x612.jpg";
-                    }}
+                <Image 
+                  src={`${FILE_URL}${post.userImage}`} 
+                  alt={post.userName || "User"}
+                  fill
+                  className="object-cover"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-[10px] font-bold text-gray-400 bg-gray-50 dark:bg-[#1a1a1a] uppercase">

@@ -31,7 +31,7 @@ export default function SettingsUi() {
   const languages = [
     { code: "en", name: "English" },
     { code: "ru", name: "Русский" },
-    { code: "tj", name: "Tojikī" }
+    { code: "tg", name: "Tojikī" }
   ];
 
   const handleLanguageChange = (code: string) => {

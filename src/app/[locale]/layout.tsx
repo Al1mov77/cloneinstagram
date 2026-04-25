@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://entertainment-lite.vercel.app",
     languages: {
-      "en-US": "https://entertainment-lite.vercel.app/en",
-      "ru-RU": "https://entertainment-lite.vercel.app/ru",
-      "tg-TJ": "https://entertainment-lite.vercel.app/tj",
+      "en": "https://entertainment-lite.vercel.app/en",
+      "ru": "https://entertainment-lite.vercel.app/ru",
+      "tg": "https://entertainment-lite.vercel.app/tg",
     },
   },
   robots: "index, follow",

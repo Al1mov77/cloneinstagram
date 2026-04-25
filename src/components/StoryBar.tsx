@@ -7,6 +7,7 @@ import { useGetMyProfileQuery, useGetFollowingQuery } from "../api/userProfile";
 import { useGetPostsQuery } from "../api/post";
 import { IStory } from "../types/interface";
 import { Link } from "../i18n/navigation";
+import Image from "next/image";
 
 const FILE_URL = "https://instagram-api.softclub.tj/images/";
 
@@ -135,9 +136,14 @@ const StoryBar = () => {
                 : 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600' 
               : 'border border-gray-200'
           } transition-transform active:scale-95 relative`}>
-            <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-gray-100 dark:bg-gray-800">
+            <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
               {myProfile?.image ? (
-                <img src={`${FILE_URL}${myProfile.image}`} alt="My Story" className="w-full h-full object-cover" />
+                <Image 
+                  src={`${FILE_URL}${myProfile.image}`} 
+                  alt="My Story Avatar" 
+                  fill
+                  className="object-cover"
+                />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-800 text-gray-400 font-bold uppercase">
                   {myProfile?.userName?.[0]}
@@ -169,15 +175,12 @@ const StoryBar = () => {
                 ? 'border border-gray-300 dark:border-gray-700' 
                 : 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600'
             } transition-transform active:scale-95`}>
-              <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-gray-100 dark:bg-gray-800">
-                <img 
-                  src={user.userAvatar ? `${FILE_URL}${user.userAvatar}` : "/image.webp"} 
+              <div className="w-full h-full rounded-full border-2 border-white dark:border-[#121212] overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                <Image 
+                  src={user.userAvatar ? `${FILE_URL}${user.userAvatar}` : "/istockphoto-2151669184-612x612.jpg"} 
                   alt={user.userName || "User"} 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/istockphoto-2151669184-612x612.jpg";
-                  }}
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
