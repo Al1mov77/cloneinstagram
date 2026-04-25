@@ -942,7 +942,7 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
 
   const { data: followersData, isFetching: followersLoading } =
     useGetFollowersQuery(
-      { userId: targetId ?? "", pageSize: 50 },
+      { userId: targetId ?? "" },
       {
         skip:
           !followModal.open || followModal.type !== "followers" || !targetId,
@@ -951,7 +951,7 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
 
   const { data: followingData, isFetching: followingLoading } =
     useGetFollowingQuery(
-      { userId: targetId ?? "", pageSize: 50 },
+      { userId: targetId ?? "" },
       {
         skip:
           !followModal.open || followModal.type !== "following" || !targetId,
