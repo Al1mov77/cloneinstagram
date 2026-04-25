@@ -35,6 +35,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FILE_URL = "https://instagram-api.softclub.tj/images/";
 
+type Tab = "posts" | "reels" | "saved";
+
 const isVideoFile = (filename: string) => {
   const videoExtensions = [".mp4", ".mov", ".wmv", ".avi", ".webm", ".mkv"];
   return videoExtensions.some((ext) => filename?.toLowerCase().endsWith(ext));
@@ -1128,9 +1130,9 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
         <div className="flex-1 pt-2">
           {/* Row 1: Username and Gear */}
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xl md:text-2xl font-semibold text-black dark:text-white">
+            <h1 className="text-xl md:text-2xl font-semibold text-black dark:text-white">
               {profile.userName}
-            </h2>
+            </h1>
             <div className="relative">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
