@@ -155,7 +155,7 @@ export const PostModal: React.FC<{ post: IPost; onClose: () => void }> = ({
 
   const myId = myProfile?.data?.id || myProfile?.data?.userId;
   const isMyProfile = (myId && post.userId && String(myId) === String(post.userId)) || 
-                     (myProfile?.data?.userName && post.userName && myProfile.data.userName === post.userName);
+                     (myProfile?.data?.userName && post.userName && myProfile?.data?.userName === post.userName);
   const isFollowing = isFollowingData?.data ?? false;
 
   const handleFollow = async () => {
@@ -983,7 +983,7 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
   }
   // --- Dynamic logic end ---
 
-  const [addStory, { isLoading: isAddingStory }] = useAddStoryMutation();
+  const [addStory] = useAddStoryMutation();
   const { data: myStoriesData } = useGetMyStoriesQuery(undefined, {
     skip: !isMyProfile,
   });
@@ -1009,8 +1009,9 @@ const ProfileUi = ({ userId }: { userId?: string }) => {
 
   const myStories = useMemo(() => {
     const stories = getStoriesArray(myStoriesData?.data);
-    if (isMyProfile && myProfileData?.data?.id) {
-      return stories.map((s: any) => ({ ...s, userId: myProfileData.data.id }));
+    const myId = myProfileData?.data?.id || myProfileData?.data?.userId;
+    if (isMyProfile && myId) {
+      return stories.map((s: any) => ({ ...s, userId: myId }));
     }
     return stories;
   }, [myStoriesData, isMyProfile, myProfileData]);
