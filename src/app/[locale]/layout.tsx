@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     description: "The fastest social media experience.",
   },
   alternates: {
-    canonical: "https://entertainment-lite.vercel.app",
     languages: {
       "en": "https://entertainment-lite.vercel.app/en",
       "ru": "https://entertainment-lite.vercel.app/ru",

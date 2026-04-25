@@ -17,6 +17,7 @@ const SelectLanguage = () => {
     <div className="mt-4 px-3">
       <select
         value={locale}
+        aria-label="Select Language"
         onChange={handleChangeLanguage}
         className="w-full bg-transparent border-none text-xs text-gray-500 cursor-pointer focus:ring-0 outline-none hover:text-gray-800 transition-colors"
       >
