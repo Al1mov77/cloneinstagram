@@ -104,6 +104,7 @@ export const NotificationDrawer: React.FC<NotificationDrawerProps> = ({ isOpen, 
 };
 
 const NotificationItem = ({ user, locale, onClose }: { user: any, locale: string, onClose: () => void }) => {
+  const t = useTranslations("Notifications");
   const { data: followStatus } = useIsFollowingUserQuery({ followingUserId: user.id });
   const [addFollow] = useAddFollowingRelationShipMutation();
   const [deleteFollow] = useDeleteFollowingRelationShipMutation();
